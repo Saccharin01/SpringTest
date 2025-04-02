@@ -4,19 +4,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping
+@RequestMapping(value = "hello")
 public class HelloController {
     @GetMapping
     public String index() {
-        return "endPoint hello is mapped";
+        return "hello Spring Boot";
     }
 
-    @GetMapping(value = "hello")
-    public String hello() {
-        return "hello springboot";
-    }
-
-    @GetMapping(value = "pathvariable/{variable}")
+    @GetMapping(value = "{variable}")
     public String vreb(@PathVariable String variable) {
         return """
                 you requested a path %s
